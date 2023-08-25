@@ -1,0 +1,318 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://parking-api.test'
+paths:
+  /api/v1/profile:
+    get:
+      summary: ''
+      operationId: getApiV1Profile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1Profile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: rerum
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: karine40@example.net
+              required:
+                - name
+                - email
+      security: []
+  /api/v1/password:
+    put:
+      summary: ''
+      operationId: putApiV1Password
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: enim
+                password:
+                  type: string
+                  description: ''
+                  example: suscipit
+              required:
+                - current_password
+                - password
+      security: []
+  /api/v1/auth/register:
+    post:
+      summary: ''
+      operationId: postApiV1AuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: cziklkeo
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: spinka.adam@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: non
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: tina48@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: provident
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/parkings/start:
+    post:
+      summary: ''
+      operationId: postApiV1ParkingsStart
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vehicle_id:
+                  type: integer
+                  description: ''
+                  example: 18
+                zone_id:
+                  type: integer
+                  description: ''
+                  example: 5
+              required:
+                - vehicle_id
+                - zone_id
+      security: []
+  '/api/v1/parkings/{parking_id}':
+    get:
+      summary: ''
+      operationId: getApiV1ParkingsParking_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parking
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1ParkingsParking_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parking
+      security: []
+    parameters:
+      -
+        in: path
+        name: parking_id
+        description: 'The ID of the parking.'
+        example: 4
+        required: true
+        schema:
+          type: integer
+  /api/v1/vehicles:
+    get:
+      summary: ''
+      operationId: getApiV1Vehicles
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Vehicles
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Vehicles
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Vehicles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plate_number:
+                  type: string
+                  description: ''
+                  example: consequatur
+              required:
+                - plate_number
+      security: []
+  '/api/v1/vehicles/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1VehiclesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Vehicles
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1VehiclesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Vehicles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plate_number:
+                  type: string
+                  description: ''
+                  example: perferendis
+              required:
+                - plate_number
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1VehiclesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Vehicles
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the vehicle.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/v1/zones:
+    get:
+      summary: ''
+      operationId: getApiV1Zones
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Zones
+      security: []
+tags:
+  -
+    name: Auth
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Parking
+    description: ''
+  -
+    name: Vehicles
+    description: ''
+  -
+    name: Zones
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

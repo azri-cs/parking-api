@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
+
+class Vehicle extends Model
+{
+    use HasFactory;
+    use SoftDeletes;
+
+    protected $fillable = ['user_id', 'plate_number'];
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope('user', static function (Builder $builder) {
+            $builder->where('user_id', auth()->id());
+        });
+    }
+}
