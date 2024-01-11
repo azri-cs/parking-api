@@ -7,4 +7,4 @@ This project will be paired with [React Parking webapp](https://github.com/azri-
 3. `npm install && npm run dev`
 4. `php artisan storage:link`
 5. `cp .env.example .env`
-6. `php artisan migrate`
+6. `php artisan key:generate && php artisan migrate`
